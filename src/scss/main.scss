@@ -1,0 +1,76 @@
+$header-color: #317df7;
+$header-font: 'Roboto Condensed', sans-serif;
+$list-font: 'Pacifico', cursive;
+$list-color: #c6d7f2;
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  h1 {
+    font-size: 4em;
+    color: $header-color;
+    font-family: $header-font;
+  }
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.Todo-Main {
+  display: inline-block;
+}
+
+.Todo-Input {
+  font-size: 1.5em;
+  padding: 5px 5px 5px 5px;
+  border: none;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.Todo-List {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0;
+  border: solid 1.7px $list-color;
+  border-radius: 3px;
+
+  li {
+    font-size: 1.5em;
+    list-style-position:inside;
+    border-top: solid 1.7px $list-color;
+    padding: 10px 7px 10px 7px;
+    font-family: $list-font;
+  }
+
+  li:first-child {
+    border: none;
+  }
+
+  button {
+    float: right;
+    position: relative;
+    top: 7px;
+    right: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: $header-color;
+    color: white;
+    font-size: .7em;
+    padding: 5px;
+  }
+}
+
+.Filter {
+  a {
+    color: black;
+    font-family: $header-font;
+    text-align: center;
+    margin-right: 10px;
+  }
+
+}

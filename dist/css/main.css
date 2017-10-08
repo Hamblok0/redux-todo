@@ -1,0 +1,9 @@
+.App {
+  text-align: center; }
+
+header {
+  margin-bottom: 30px; }
+  header h1 {
+    font-size: 4em;
+    color: #317df7;
+    font-family: "Roboto Condensed", sans-serif; }
