@@ -1,18 +1,11 @@
 
-const initState = {
-  todos: [],
-  current: ""
-}
-
-let todoId = 0;
-
-const todos = (state = initState, action) => {
+const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
-
+      let todoId = '_' + Math.random().toString(36).substr(2, 9);
       return {
         todos: state.todos.concat({
-          id: todoId++,
+          id: todoId,
           text: action.payload,
           completed: false
         }),
