@@ -5,7 +5,6 @@ import App from './App';
 import store from'./store';
 import {saveState} from './localStorage';
 
-console.log(store.getState())
 
 store.subscribe(() => {
   saveState(store.getState());
