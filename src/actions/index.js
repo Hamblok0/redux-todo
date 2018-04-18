@@ -9,6 +9,18 @@ export const filterTodos = (todos, filter) => {
     case 'completed':
       return todos.filter(t => t.completed)
     default:
-      return todos
+      return SortDefault(todos);
+  }
+
+  function SortDefault(todos) {
+    let todoArrayComplete = [];
+    let todoArrayNotComplete = [];
+    for (let todo of todos) {
+      if(todo.completed) 
+        todoArrayComplete.push(todo);
+      else 
+        todoArrayNotComplete.push(todo);
+    }
+    return todoArrayNotComplete.concat(todoArrayComplete);
   }
 }
