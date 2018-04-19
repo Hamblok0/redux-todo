@@ -59,7 +59,8 @@ gulp.task('webserver', function(){
         gulp.src('./public/')
             .pipe(webserver({
                 livereload: true,
-                open: true
+                open: true,
+                fallback: 'index.html'
             }));
     });
 
