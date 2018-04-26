@@ -58,6 +58,7 @@ gulp.task('watch', function() {
 gulp.task('webserver', function(){
         gulp.src('./public/')
             .pipe(webserver({
+                host: '0.0.0.0',
                 livereload: true,
                 open: true,
                 port: process.env.PORT || 8000,
@@ -68,4 +69,3 @@ gulp.task('webserver', function(){
 
 gulp.task('default', ['sass', 'browserify-watch', 'watch', 'webserver'])
 gulp.task('build', ['sass', 'browserify'])
-gulp.task('server', ['webserver'])
