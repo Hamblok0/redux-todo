@@ -67,3 +67,4 @@ gulp.task('webserver', function(){
 
 gulp.task('default', ['sass', 'browserify-watch', 'watch', 'webserver'])
 gulp.task('build', ['sass', 'browserify'])
+gulp.task('server', ['webserver'])
