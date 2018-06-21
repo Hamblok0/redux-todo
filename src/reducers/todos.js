@@ -1,40 +1,42 @@
 
 const todos = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TODO':
-      let todoId = '_' + Math.random().toString(36).substr(2, 9);
+    case 'FETCH_TODOS_SUCCESS':
+      return {...state, todos: action.payload}
+
+    case 'CREATE_TODO_SUCCESS':
       return {
         todos: state.todos.concat({
-          id: todoId,
-          text: action.payload,
-          completed: false
+          id: action.payload.id,
+          text: action.payload.text,
+          completed: action.payload.completed
         }),
         current: ""
-      };
-
-    case 'DELETE_TODO':
+      }
+    
+    case 'DELETE_TODO_SUCCESS':
       return {
         ...state,
-        todos: state.todos.filter(todo => todo.id !== action.payload)
+        todos: state.todos.filter(todo => todo.id !== action.payload.id)
       }
 
-    case 'TOGGLE_TODO':
+    case 'TOGGLE_TODO_SUCCESS':
       return {
         ...state,
         todos: state.todos.map(todo => {
-          if (todo.id !== action.payload) {
+          if (todo.id !== action.payload.id) {
             return todo;
           } else {
             return {
-              ...todo,
-              completed: !todo.completed
-            };
+              ...action.payload
+            }
           }
         })
       };
 
     case 'UPDATE_CURRENT':
       return {...state, current: action.payload}
+
 
     default:
       return state;

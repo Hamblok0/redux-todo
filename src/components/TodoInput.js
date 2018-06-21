@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateCurrent, addTodo} from '../actions';
+import {updateCurrent, createTodo} from '../actions';
 
 
 class TodoInput extends React.Component {
@@ -11,7 +11,11 @@ class TodoInput extends React.Component {
     }
     const handleSubmit = (event) => {
       event.preventDefault()
-      this.props.addTodo(this.props.current)
+      let todo = {
+        text: this.props.current,
+        completed: false
+      }
+      this.props.createTodo(todo)
     }
     return (
       <form onSubmit={handleSubmit}>
@@ -26,4 +30,4 @@ class TodoInput extends React.Component {
   }
 }
 
-export default connect((state) => ({current: state.current}), {updateCurrent, addTodo})(TodoInput);
+export default connect((state) => ({current: state.current}), {updateCurrent, createTodo})(TodoInput);

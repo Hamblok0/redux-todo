@@ -1,5 +1,10 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducers/todos';
-import {loadState} from './localStorage';
+import thunk from 'redux-thunk';
 
-export default createStore(reducer, loadState())
+let initialState = {
+    todos: [],
+    current: ""
+}
+
+export default createStore(reducer, initialState, applyMiddleware(thunk))
