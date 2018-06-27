@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import todos from './reducers/todos';
 import filter from './reducers/filter';
 import current from './reducers/current';
@@ -16,4 +17,4 @@ const rootReducer = combineReducers({
     current
 })
 
-export default createStore(rootReducer, initialState, applyMiddleware(thunk))
+export default createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
