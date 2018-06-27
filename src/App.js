@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
-import Filter from './components/Filter';
+import TodoContainer from './components/TodosContainer';
 import Header from './components/Header';
 
 class App extends Component {
@@ -12,13 +10,7 @@ class App extends Component {
         <Header className="Header"/>
         <Router>
           <div className="wrapper">
-            <div className="Todo-Main">
-              <TodoInput />
-              <Route path='/:filter?' render={({match}) => (
-                <TodoList filter={match.params.filter} />
-              )} />
-              <Filter />
-            </div>
+            <Route path="/todos" component={TodoContainer} />
           </div>
         </Router>
       </div>

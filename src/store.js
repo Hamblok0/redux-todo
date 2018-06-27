@@ -1,10 +1,19 @@
-import { createStore, applyMiddleware } from 'redux';
-import reducer from './reducers/todos';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import todos from './reducers/todos';
+import filter from './reducers/filter';
+import current from './reducers/current';
 import thunk from 'redux-thunk';
 
 let initialState = {
     todos: [],
+    filter: "SHOW_ALL",
     current: ""
 }
 
-export default createStore(reducer, initialState, applyMiddleware(thunk))
+const rootReducer = combineReducers({
+    todos,
+    filter,
+    current
+})
+
+export default createStore(rootReducer, initialState, applyMiddleware(thunk))

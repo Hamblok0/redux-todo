@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import TodoItem from './TodoItem';
-import {toggleTodo, deleteTodo, filterTodos} from '../actions';
+import {toggleTodo, deleteTodo, filterTodos, fetchTodos} from '../actions';
 
 class TodoList extends React.Component{
-
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
   render() {
     return (
       <ul className="Todo-List">
@@ -21,4 +23,4 @@ class TodoList extends React.Component{
   }
 }
 
-export default connect((state, ownProps) => ({todos: filterTodos(state.todos, ownProps.filter)}), {toggleTodo, deleteTodo})(TodoList);
+export default connect((state) => ({todos: filterTodos(state.todos, state.filter)}), {toggleTodo, deleteTodo, fetchTodos})(TodoList);

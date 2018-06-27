@@ -1,12 +1,15 @@
 import Axios from "axios";
 
 export const updateCurrent = (val) => ({type:'UPDATE_CURRENT', payload: val})
+export const setFilter = (filter) => ({type:'SET_FILTER', payload: filter})
 export const filterTodos = (todos, filter) => {
   switch(filter) {
-    case 'active':
+    case 'ACTIVE':
       return todos.filter(t => !t.completed)
-    case 'completed':
+    case 'COMPLETED':
       return todos.filter(t => t.completed)
+    case 'SHOW_ALL':
+      return SortDefault(todos)
     default:
       return SortDefault(todos);
   }
