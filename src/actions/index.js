@@ -8,8 +8,6 @@ export const filterTodos = (todos, filter) => {
       return todos.filter(t => !t.completed)
     case 'COMPLETED':
       return todos.filter(t => t.completed)
-    case 'SHOW_ALL':
-      return SortDefault(todos)
     default:
       return SortDefault(todos);
   }

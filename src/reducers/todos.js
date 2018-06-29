@@ -5,32 +5,22 @@ const todos = (state = [], action) => {
       return action.payload
 
     case 'CREATE_TODO_SUCCESS':
-      return state.concat({
-          id: action.payload.id,
-          text: action.payload.text,
-          completed: action.payload.completed
-        })
+      return [...state, action.payload]
       
     
     case 'DELETE_TODO_SUCCESS':
-      return {
-        ...state,
-        todos: state.todos.filter(todo => todo.id !== action.payload.id)
-      }
+      return state.filter(todo => todo.id !== action.payload.id)
+  
 
     case 'TOGGLE_TODO_SUCCESS':
-      return {
-        ...state,
-        todos: state.todos.map(todo => {
+      return state.map(todo => {
           if (todo.id !== action.payload.id) {
             return todo;
           } else {
-            return {
-              ...action.payload
-            }
+            return action.payload
           }
         })
-      };
+      
       
     default:
       return state;

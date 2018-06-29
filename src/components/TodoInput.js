@@ -15,6 +15,7 @@ class TodoInput extends React.Component {
         text: this.props.current,
         completed: false
       }
+      this.props.updateCurrent("")
       this.props.createTodo(todo)
     }
     return (
