@@ -82,3 +82,32 @@ export const deleteTodo = (id) => {
       })
   }
 }
+
+const URL = 'localhost:3000/api/users'
+
+export const authenticated = () => ({type: "AUTHENTICATED"})
+export const signIn = ({email, password}) => {
+  return (dispatch) => {
+    return Axios.post(URL + '/signin', {email, password})
+      .then(response => {
+        dispatch(authenticated());
+        localStorage.setItem('user', response.data.token);
+      })
+      .catch(error => {
+        throw(error)
+      })
+  }
+};
+
+export const signUp = ({email, password}) => {
+  return (dispatch) => {
+    return Axios.post('/signup', {email, password})
+      .then(response => {
+        dispatch(authenticated());
+        localStorage.setItem('user', response.data.token);
+      })
+      .catch(error => {
+        throw(error);
+      })
+  }
+};

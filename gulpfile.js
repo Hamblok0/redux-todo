@@ -58,11 +58,15 @@ gulp.task('watch', function() {
 gulp.task('webserver', function(){
         gulp.src('./public/')
             .pipe(webserver({
-                host: '0.0.0.0',
                 livereload: true,
                 open: true,
                 port: process.env.PORT || 8000,
-                fallback: 'index.html'
+                fallback: 'index.html',
+                proxies: [
+                  {source: '/signup', target: 'http://localhost:3000/api/users/signup'},
+                  {source: '/login', target:"http://localhost:3000/api/users/login"}
+                  
+                ]
             }));
     });
 

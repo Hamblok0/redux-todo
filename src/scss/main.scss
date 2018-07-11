@@ -66,11 +66,42 @@ header {
 }
 
 .Filter {
-  a {
+  button {
     color: black;
     font-family: $header-font;
     text-align: center;
     margin-right: 10px;
+    background: none;
+    border: none;
   }
 
 }
+
+.LoginBody {
+  display: inline-block;
+  border: solid 1.7px $list-color;
+  border-radius: 3px;
+  h3 {
+    font-size: 2em;
+    color: $header-color;
+    font-family: $header-font;
+  }
+
+  ul {
+    padding: 0 10px 0 10px;
+    list-style-type: none;
+  }
+
+  input {
+    font-size: 1.5em;
+    padding: 5px 5px 5px 5px;
+    border: none;
+  }
+
+  .SignupLink {
+    color: black;
+    font-family: $header-font;
+    text-decoration: none;
+  }
+}
+
